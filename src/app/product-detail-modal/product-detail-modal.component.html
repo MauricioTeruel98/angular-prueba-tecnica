@@ -1,0 +1,17 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{ product.title }}</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <figure class="">
+        <img src="{{product.image}}" alt="" class="img-fluid p-5 rounded mx-auto d-block">
+    </figure>
+    <p><strong>ID:</strong> {{ product.id }}</p>
+    <p><strong>Categoría:</strong> {{ product.category }}</p>
+    <p><strong>Precio:</strong> ${{ product.price }}</p>
+    <p><strong>Descripción:</strong> {{ product.description }}</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss('Close click')">Cerrar</button>
+  </div>
+  
