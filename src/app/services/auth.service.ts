@@ -9,6 +9,7 @@ export class AuthService {
   login(email: string, password: string): boolean {
     if (email === 'user@demo.com' && password === '123456') {
       this.isAuthenticated = true;
+      localStorage.setItem('authToken', 'fake-jwt-token'); // Almacenar token de autenticación en localStorage
       return true;
     }
     return false;
@@ -16,9 +17,10 @@ export class AuthService {
 
   logout(): void {
     this.isAuthenticated = false;
+    localStorage.removeItem('authToken'); // Eliminar token de autenticación de localStorage
   }
 
   isLoggedIn(): boolean {
-    return this.isAuthenticated;
+    return this.isAuthenticated || !!localStorage.getItem('authToken'); // Verificar autenticación
   }
 }

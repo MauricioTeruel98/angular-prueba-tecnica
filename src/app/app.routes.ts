@@ -1,10 +1,12 @@
 import { Routes } from '@angular/router';
-import { TableComponent } from './table/table.component';
 import { LoginComponent } from './login/login.component';
+import { TableComponent } from './table/table.component';
 import { AuthGuard } from './guards/auth.guard';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
-export const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+export const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'product-list', component: TableComponent, canActivate: [AuthGuard] }
+  { path: 'products', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: '', redirectTo: '/products', pathMatch: 'full' },
+  { path: '**', redirectTo: '/login' } // Redirige a /login en caso de rutas no encontradas
 ];

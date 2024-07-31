@@ -1,22 +1,41 @@
-<!-- <section class="container my-5">
-  <h1>Login</h1>
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div class="mb-3">
-      <label for="email" class="form-label">Email address</label>
-      <input type="email" id="email" class="form-control" formControlName="email">
-      <div *ngIf="loginForm.get('email').invalid && (loginForm.get('email').dirty || loginForm.get('email').touched)" class="text-danger">
-        <div *ngIf="loginForm.get('email').errors['required']">Email is required</div>
-        <div *ngIf="loginForm.get('email').errors['email']">Email is invalid</div>
-      </div>
+<div class="login-container">
+  <div class="d-flex flex-column align-items-center">
+    <h1 class="h3 mb-3 fw-normal">Login form</h1>
+    <h2>Angular Demo</h2>
+    <div class="card p-5">
+      <main class="form-signin w-100 m-auto">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="d-flex justify-content-center">
+            <img class="mb-4 img-fluid" src="../assets/pinguino.png" alt="" width="120" height="120">
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" formControlName="email"
+              placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+            <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+              <small *ngIf="loginForm.get('email')?.errors?.['required']" style="color: red;">Email is required</small>
+              <small *ngIf="loginForm.get('email')?.errors?.['email']" style="color: red;">Invalid email format</small>
+            </div>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingPassword" formControlName="password"
+              placeholder="Password">
+            <label for="floatingPassword">Password</label>
+            <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+              <small *ngIf="loginForm.get('password')?.errors?.['required']" style="color: red;">Password is required</small>
+              <small *ngIf="loginForm.get('password')?.errors?.['minlength']" style="color: red;">Password must be at least 6
+                characters</small>
+            </div>
+          </div>
+
+          <button class="btn btn-success w-100 py-2" type="submit" [disabled]="loginForm.invalid">Log In</button>
+
+          <div class="d-flex justify-content-center mt-5">
+            <p>user: <b>{{"user@demo.com"}}</b> - pass: <b>123456</b></p>
+          </div>
+        </form>
+      </main>
     </div>
-    <div class="mb-3">
-      <label for="password" class="form-label">Password</label>
-      <input type="password" id="password" class="form-control" formControlName="password">
-      <div *ngIf="loginForm.get('password').invalid && (loginForm.get('password').dirty || loginForm.get('password').touched)" class="text-danger">
-        <div *ngIf="loginForm.get('password').errors['required']">Password is required</div>
-        <div *ngIf="loginForm.get('password').errors['minlength']">Password must be at least 6 characters long</div>
-      </div>
-    </div>
-    <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
-  </form>
-</section> -->
+  </div>
+</div>
