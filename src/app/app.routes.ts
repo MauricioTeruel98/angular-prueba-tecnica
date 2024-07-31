@@ -8,5 +8,5 @@ export const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'products', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: '/products', pathMatch: 'full' },
-  { path: '**', redirectTo: '/login' } // Redirige a /login en caso de rutas no encontradas
+  { path: '**', redirectTo: '/login' }
 ];

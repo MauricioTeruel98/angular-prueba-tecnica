@@ -17,7 +17,5 @@ export class AppComponent {
 
   applyFilters() {
     // Este método existe para desencadenar la detección de cambios
-    // en Angular y actualizar los valores de los inputs
-    console.log('Category:', this.selectedCategory, 'Limit:', this.selectedLimit);
   }
 }

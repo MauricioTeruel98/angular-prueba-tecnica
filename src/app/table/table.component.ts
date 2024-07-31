@@ -49,7 +49,6 @@ export class TableComponent implements OnInit, OnChanges {
   }
 
   applyFilters(): void {
-    console.log('Applying filters...');
     let filteredData = this.allProducts;
 
     if (this.category) {
@@ -57,12 +56,6 @@ export class TableComponent implements OnInit, OnChanges {
     }
 
     this.dataSource.data = filteredData.slice(0, this.limit);
-    console.log('Filtered data:', this.dataSource.data);
-
-    // Handle case when no products match the filters
-    if (this.dataSource.data.length === 0) {
-      console.warn('No products match the filters');
-    }
   }
 
   openModal(product: Product): void {
